@@ -1,13 +1,12 @@
 import UIKit
 
 enum TimelineChartMode {
-    case demo
     case free
     case premium(timelinePosition: CGFloat)
 
     var axisMinimum: Double {
         switch self {
-        case .demo, .free:
+        case .free:
             return 7 * 60 // 7 hours
 
         case .premium:
@@ -17,7 +16,7 @@ enum TimelineChartMode {
 
     var axisMaximum: Double {
         switch self {
-        case .demo, .free:
+        case .free:
             return 9 * 60 // 9 hours
 
         case .premium:
@@ -25,10 +24,10 @@ enum TimelineChartMode {
         }
     }
 
-    // We should display timeline position both in demo, free and premium mode
+    // We should display timeline position both in free and premium mode
     var timelinePosition: CGFloat {
         switch self {
-        case .demo, .free:
+        case .free:
             return 9 * 60 // 9 hours
 
         case .premium(let timelinePosition):

@@ -313,11 +313,6 @@ final class DeviceWorkTimelineViewImpl: UIViewController {
 
     private func updateViews(chartMode: TimelineChartMode) {
         switch chartMode {
-        case .demo:
-            chartImageView.isHidden = false
-            chartScrollView.isScrollEnabled = false
-            arrows.forEach { $0.isHidden = false }
-
         case .free:
             chartImageView.isHidden = false
             chartScrollView.isScrollEnabled = false
@@ -349,7 +344,7 @@ final class DeviceWorkTimelineViewImpl: UIViewController {
             let dataSet = TimelineChartDataSet(values)
             chartView.data = ChartData(dataSets: [dataSet])
 
-        case .demo, .free:
+        case .free:
             chartView.data = ChartData(dataSets: [])
         }
     }
@@ -368,7 +363,7 @@ final class DeviceWorkTimelineViewImpl: UIViewController {
                 constant: -extraSpace
             )
 
-        case .demo, .free:
+        case .free:
             chartViewWidth = chartView.widthAnchor.constraint(
                 equalTo: chartScrollView.widthAnchor
             )

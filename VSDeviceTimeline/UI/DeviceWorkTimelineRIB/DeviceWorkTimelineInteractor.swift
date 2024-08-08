@@ -71,11 +71,6 @@ final class DeviceWorkTimelineInteractorImpl: BaseInteractor {
 
     private func configure() {
         switch licenseStatusProvider.licenseStatus {
-        case .demo:
-            DispatchQueue.main.async { [weak self] in
-                self?.presenter.presentDemoMode()
-            }
-
         case .free:
             DispatchQueue.main.async { [weak self] in
                 self?.presenter.presentFreeMode()

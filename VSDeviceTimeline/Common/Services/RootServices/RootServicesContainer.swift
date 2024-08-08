@@ -20,10 +20,10 @@ final class RootServicesContainerImpl: NSObject, RootServicesContainer {
     // MARK: - Init
 
     override init() {
-        self.licenseStatusProvider = LicenseStatusProvider(licenseStatus: .premium)
+        self.licenseStatusProvider = LicenseStatusProvider(licenseStatus: .free)
 
         let settings = DeviceUsageControlSettings(forbiddenIntervals: nil)
-        let timelineData = DeviceUsageTimelineData(intervals: [])
+        let timelineData = DeviceUsageTimelineData(intervals: nil)
         self.deviceControlSettingsProvider = DeviceControlSettingsProvider(settings: settings)
         self.deviceUsageReportsManager = DeviceUsageReportsManagerImpl(timelineData: timelineData)
     }

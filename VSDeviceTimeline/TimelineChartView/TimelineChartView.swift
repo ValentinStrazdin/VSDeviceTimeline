@@ -24,7 +24,7 @@ final class TimelineChartView: BarLineChartViewBase {
 
     // MARK: - Internal Properties
 
-    var mode: TimelineChartMode = .demo {
+    var mode: TimelineChartMode = .free {
         didSet {
             setupXAsix()
         }

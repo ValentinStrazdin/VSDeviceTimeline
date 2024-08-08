@@ -5,7 +5,6 @@ import Foundation
 protocol DeviceWorkTimelinePresenter: AnyObject {
 
     func presentFreeMode()
-    func presentDemoMode()
     func presentPremium(
         timelinePosition: CGFloat,
         settings: DeviceUsageControlSettings,
@@ -43,14 +42,6 @@ final class DeviceWorkTimelinePresenterImpl: DeviceWorkTimelinePresenter {
         let viewModel = ViewModel()
         present(
             chartMode: .free,
-            viewModel: viewModel
-        )
-    }
-
-    func presentDemoMode() {
-        let viewModel = ViewModel()
-        present(
-            chartMode: .demo,
             viewModel: viewModel
         )
     }
