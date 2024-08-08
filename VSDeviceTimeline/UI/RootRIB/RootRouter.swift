@@ -4,6 +4,7 @@ import UIKit
 
 protocol RootRouter: ViewableRouter {
 
+    func attachSplash()
     func attachDashboard()
 
 }
@@ -68,6 +69,17 @@ final class RootRouterImpl: BaseRouter, ViewableRouter {
 // MARK: - Protocol RootRouter
 
 extension RootRouterImpl: RootRouter {
+
+    func attachSplash() {
+        guard let splashScreen = UIStoryboard.LaunchScreen.instantiateInitialViewController() else {
+            assertionFailure("Failed to instantiate LaunchScreen controller.")
+            return
+        }
+
+        childRouter?.stop()
+        childRouter = nil
+        controller.embed(child: splashScreen)
+    }
 
     func attachDashboard() {
         let router = DashboardBuilder(

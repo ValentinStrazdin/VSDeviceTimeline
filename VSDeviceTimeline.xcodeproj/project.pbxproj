@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6ECD350C2C650331008EB122 /* UIStoryboard+IdentifiableStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD350B2C650331008EB122 /* UIStoryboard+IdentifiableStoryboard.swift */; };
+		6ECD350E2C650503008EB122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EF2BE9D2C62161500029A40 /* LaunchScreen.storyboard */; };
 		6EF2BE932C62161200029A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BE922C62161200029A40 /* AppDelegate.swift */; };
 		6EF2BE952C62161200029A40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BE942C62161200029A40 /* SceneDelegate.swift */; };
 		6EF2BE9C2C62161500029A40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EF2BE9B2C62161500029A40 /* Assets.xcassets */; };
@@ -113,6 +115,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6ECD350B2C650331008EB122 /* UIStoryboard+IdentifiableStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+IdentifiableStoryboard.swift"; sourceTree = "<group>"; };
 		6EF2BE8F2C62161200029A40 /* VSDeviceTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VSDeviceTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF2BE922C62161200029A40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EF2BE942C62161200029A40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -297,6 +300,7 @@
 				6EF2BF612C625A8000029A40 /* UIStackView+ArrangedSubviews.swift */,
 				6EF2BFCA2C63951F00029A40 /* Foundation+Locking.swift */,
 				6EF2BFCE2C63B1A900029A40 /* UITraitEnvironment+Extension.swift */,
+				6ECD350B2C650331008EB122 /* UIStoryboard+IdentifiableStoryboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -610,6 +614,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EF2BE9C2C62161500029A40 /* Assets.xcassets in Resources */,
+				6ECD350E2C650503008EB122 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +656,7 @@
 				6EF2BF372C62348000029A40 /* TimelineChartView.swift in Sources */,
 				6EF2BF972C62CEBC00029A40 /* DeviceWorkTimelineRouter.swift in Sources */,
 				6EF2BF792C62BD7200029A40 /* Builder.swift in Sources */,
+				6ECD350C2C650331008EB122 /* UIStoryboard+IdentifiableStoryboard.swift in Sources */,
 				6EF2BF912C62CBFE00029A40 /* DeviceWorkTimelineBuilder.swift in Sources */,
 				6EF2BF482C62413D00029A40 /* UIView+Helpers.swift in Sources */,
 				6EF2BFCD2C63954900029A40 /* Locking.swift in Sources */,

@@ -9,6 +9,7 @@ final class RootInteractor: BaseInteractor {
     override func start() {
         super.start()
 
+        router?.attachSplash()
         router?.attachDashboard()
     }
 

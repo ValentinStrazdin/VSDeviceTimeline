@@ -23,7 +23,6 @@ final class DeviceWorkTimelineBuilder: Builder {
         let component = factory.makeComponent()
 
         let dataManager = DeviceUsageTimelineDataManager()
-        let timelinePositionProvider = TimelinePositionProvider()
 
         let view = DeviceWorkTimelineViewImpl.makeView(
             legendsDataSource: dataManager
