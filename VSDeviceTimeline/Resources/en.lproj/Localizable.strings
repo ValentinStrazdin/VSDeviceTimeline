@@ -1,0 +1,5 @@
+"DeviceWorkTimeline.title" = "Child’s device activity";
+"DeviceWorkTimeline.Active.title" = "Active";
+"DeviceWorkTimeline.Blocked.title" = "Blocked";
+"DeviceWorkTimeline.AdditionalTime.title" = "Additional time";
+"DeviceWorkTimeline.Overtime.title" = "Active with warnings";

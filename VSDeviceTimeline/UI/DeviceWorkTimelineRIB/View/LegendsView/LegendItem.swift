@@ -13,19 +13,23 @@ enum LegendItem: Int, CaseIterable, Comparable {
 
 extension LegendItem {
 
+    // MARK: - Private Types
+
+    private typealias Localization = String.Localized.DeviceWorkTimeline.Legend
+
     var title: String {
         switch self {
         case .active:
-            return "Активно"
+            return Localization.activeTitle
 
         case .blocked:
-            return "Заблокировано"
+            return Localization.blockedTitle
 
         case .additionalTime:
-            return "Дополнительное время"
+            return Localization.additionalTimeTitle
 
         case .overtime:
-            return "Показываются предупреждения"
+            return Localization.overtimeTitle
         }
     }
 

@@ -1,0 +1,5 @@
+"DeviceWorkTimeline.title" = "График работы устройства";
+"DeviceWorkTimeline.Active.title" = "Активно";
+"DeviceWorkTimeline.Blocked.title" = "Заблокировано";
+"DeviceWorkTimeline.AdditionalTime.title" = "Дополнительное время";
+"DeviceWorkTimeline.Overtime.title" = "Показываются предупреждения";

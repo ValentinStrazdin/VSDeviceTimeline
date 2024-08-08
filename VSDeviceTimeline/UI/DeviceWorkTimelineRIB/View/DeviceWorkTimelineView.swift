@@ -22,6 +22,7 @@ final class DeviceWorkTimelineViewImpl: UIViewController {
 
     private typealias TimelineChartDataSet = BarLineScatterCandleBubbleChartDataSet
     private typealias ViewModel = DeviceWorkTimeline.ViewModel
+    private typealias Localization = String.Localized.DeviceWorkTimeline
 
     private enum Constant {
 
@@ -94,7 +95,7 @@ final class DeviceWorkTimelineViewImpl: UIViewController {
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.attributedText = NSAttributedString(
-            string: "График работы устройства",
+            string: Localization.title,
             font: .systemFont(ofSize: 16, weight: .medium),
             textColor: .textPrimary,
             alignment: .natural

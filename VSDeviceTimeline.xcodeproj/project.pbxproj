@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6ECD350C2C650331008EB122 /* UIStoryboard+IdentifiableStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD350B2C650331008EB122 /* UIStoryboard+IdentifiableStoryboard.swift */; };
 		6ECD350E2C650503008EB122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EF2BE9D2C62161500029A40 /* LaunchScreen.storyboard */; };
+		6ECD35132C650FE0008EB122 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6ECD35112C650FE0008EB122 /* Localizable.strings */; };
+		6ECD359D2C6510CD008EB122 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD359C2C6510CD008EB122 /* String+Localized.swift */; };
+		6ECD359F2C651136008EB122 /* Localization+DeviceWorkTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD359E2C651136008EB122 /* Localization+DeviceWorkTimeline.swift */; };
 		6EF2BE932C62161200029A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BE922C62161200029A40 /* AppDelegate.swift */; };
 		6EF2BE952C62161200029A40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BE942C62161200029A40 /* SceneDelegate.swift */; };
 		6EF2BE9C2C62161500029A40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6EF2BE9B2C62161500029A40 /* Assets.xcassets */; };
@@ -116,6 +119,11 @@
 
 /* Begin PBXFileReference section */
 		6ECD350B2C650331008EB122 /* UIStoryboard+IdentifiableStoryboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+IdentifiableStoryboard.swift"; sourceTree = "<group>"; };
+		6ECD35122C650FE0008EB122 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6ECD359C2C6510CD008EB122 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		6ECD359E2C651136008EB122 /* Localization+DeviceWorkTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+DeviceWorkTimeline.swift"; sourceTree = "<group>"; };
+		6ECD35A02C6512AB008EB122 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6ECD35A12C65134F008EB122 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6EF2BE8F2C62161200029A40 /* VSDeviceTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VSDeviceTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF2BE922C62161200029A40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6EF2BE942C62161200029A40 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +206,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6ECD35102C650F9A008EB122 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6EF2BE9B2C62161500029A40 /* Assets.xcassets */,
+				6EF2BE9D2C62161500029A40 /* LaunchScreen.storyboard */,
+				6ECD35112C650FE0008EB122 /* Localizable.strings */,
+				6EF2BEA02C62161500029A40 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6ECD359B2C6510AC008EB122 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				6ECD359C2C6510CD008EB122 /* String+Localized.swift */,
+				6ECD359E2C651136008EB122 /* Localization+DeviceWorkTimeline.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		6EF2BE862C62161200029A40 = {
 			isa = PBXGroup;
 			children = (
@@ -223,9 +251,7 @@
 				6EF2BF9E2C63754700029A40 /* Common */,
 				6EF2BF9F2C63757F00029A40 /* UI */,
 				6EF2BF282C62347F00029A40 /* TimelineChartView */,
-				6EF2BE9B2C62161500029A40 /* Assets.xcassets */,
-				6EF2BE9D2C62161500029A40 /* LaunchScreen.storyboard */,
-				6EF2BEA02C62161500029A40 /* Info.plist */,
+				6ECD35102C650F9A008EB122 /* Resources */,
 			);
 			path = VSDeviceTimeline;
 			sourceTree = "<group>";
@@ -429,6 +455,7 @@
 				6EF2BF462C623C3D00029A40 /* Custom Colors */,
 				6EF2BF4F2C6247DA00029A40 /* Custom Views */,
 				6EF2BF3F2C62385A00029A40 /* Extensions */,
+				6ECD359B2C6510AC008EB122 /* Localization */,
 				6EF2BF7E2C62BF4C00029A40 /* Protocols */,
 				6EF2BF782C62BD7200029A40 /* Riblet */,
 				6EF2BFC42C638DF900029A40 /* Services */,
@@ -574,6 +601,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				ru,
 			);
 			mainGroup = 6EF2BE862C62161200029A40;
 			productRefGroup = 6EF2BE902C62161200029A40 /* Products */;
@@ -614,6 +643,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EF2BE9C2C62161500029A40 /* Assets.xcassets in Resources */,
+				6ECD35132C650FE0008EB122 /* Localizable.strings in Resources */,
 				6ECD350E2C650503008EB122 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -665,6 +695,7 @@
 				6EF2BF932C62CD0500029A40 /* DeviceWorkTimelineInteractor.swift in Sources */,
 				6EF2BF3C2C62348000029A40 /* LegendsFlowLayout.swift in Sources */,
 				6EF2BF512C62480500029A40 /* CustomGradientView.swift in Sources */,
+				6ECD359F2C651136008EB122 /* Localization+DeviceWorkTimeline.swift in Sources */,
 				6EF2BF992C62D26400029A40 /* DeviceUsageControlSettings.swift in Sources */,
 				6EF2BF532C624ECD00029A40 /* DeviceWorkTimeline.swift in Sources */,
 				6EF2BF322C62348000029A40 /* TimelinePositionProvider.swift in Sources */,
@@ -688,6 +719,7 @@
 				6EF2BFC32C6384E500029A40 /* LicenseStatusProvider.swift in Sources */,
 				6EF2BF9C2C62D35C00029A40 /* DeviceUsageTimelineData.swift in Sources */,
 				6EF2BF952C62CEA200029A40 /* DeviceWorkTimelinePresenter.swift in Sources */,
+				6ECD359D2C6510CD008EB122 /* String+Localized.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,6 +734,16 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6ECD35112C650FE0008EB122 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6ECD35122C650FE0008EB122 /* en */,
+				6ECD35A02C6512AB008EB122 /* ar */,
+				6ECD35A12C65134F008EB122 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		6EF2BE9D2C62161500029A40 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -718,6 +760,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -781,6 +824,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -841,7 +885,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S95774CNK5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = VSDeviceTimeline/Info.plist;
+				INFOPLIST_FILE = VSDeviceTimeline/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -869,7 +913,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = S95774CNK5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = VSDeviceTimeline/Info.plist;
+				INFOPLIST_FILE = VSDeviceTimeline/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
