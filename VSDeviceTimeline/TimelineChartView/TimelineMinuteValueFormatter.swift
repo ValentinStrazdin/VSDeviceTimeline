@@ -16,6 +16,8 @@ final class TimelineMinuteValueFormatter: NSObject, AxisValueFormatter {
     // MARK: - Formatting
 
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        // Here we convert minutes to seconds,
+        // for Right-to-Left UI convert negative values to positive
         let timeInterval = abs(value.rounded(.up) * 60)
         return formatter.string(from: timeInterval) ?? ""
     }
