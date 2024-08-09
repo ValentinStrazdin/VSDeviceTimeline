@@ -3,3 +3,13 @@
 "DeviceWorkTimeline.Blocked.title" = "Заблокировано";
 "DeviceWorkTimeline.AdditionalTime.title" = "Дополнительное время";
 "DeviceWorkTimeline.Overtime.title" = "Показываются предупреждения";
+
+"Dashboard.Button.FreeMode.title" = "Бесплатный режим";
+"Dashboard.Button.PremiumMode.title" = "Платный режим";
+"Dashboard.Button.Add.title" = "Добавить";
+"Dashboard.Button.Remove.title" = "Удалить";
+
+"Dashboard.UsageIntervals.title" = "Интервалы использования";
+"Dashboard.BlockIntervals.title" = "Интервалы блокировки";
+"Dashboard.OvertimeIntervals.title" = "Интервалы с предупреждениями";
+"Dashboard.AdditionalTimeIntervals.title" = "Интервалы дополнительного времени";

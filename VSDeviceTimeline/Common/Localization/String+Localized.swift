@@ -6,9 +6,14 @@ extension String {
 
         enum DeviceWorkTimeline { 
 
-            enum Legend {
-                
-            }
+            enum Legend { }
+
+        }
+
+        enum Dashboard {
+
+            enum Button { }
+
         }
 
     }

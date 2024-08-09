@@ -39,6 +39,20 @@ extension DashboardPresenterImpl: DashboardPresenter {
 
 extension DashboardPresenterImpl: DashboardViewEventsHandler {
 
-    // TODO: Implement DashboardViewEventsHandler protocol
+    func didTapFreeMode() {
+        interactor?.updateLicenseStatus(.free)
+    }
+    
+    func didTapPremiumMode() {
+        interactor?.updateLicenseStatus(.premium)
+    }
+
+    func didTapAddIntervals(type: TimelineInterval.IntervalType) {
+        interactor?.addIntervals(type: type)
+    }
+
+    func didTapRemoveIntervals(type: TimelineInterval.IntervalType) {
+        interactor?.removeIntervals(type: type)
+    }
 
 }

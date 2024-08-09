@@ -30,4 +30,12 @@ extension UIColor {
         UIColor.color(from: "F6F6F6FF")
     }
 
+    static var mainPrimary: UIColor {
+        UIColor.color(from: "1E856FFF")
+    }
+
+    static var mainTertiary: UIColor {
+        UIColor.color(from: "006D5CFF")
+    }
+
 }
