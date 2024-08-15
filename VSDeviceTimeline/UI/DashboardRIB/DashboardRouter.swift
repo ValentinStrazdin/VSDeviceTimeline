@@ -23,8 +23,6 @@ final class DashboardRouterImpl: BaseRouter, ViewableRouter {
 
     private var childRouter: ViewableRouter?
 
-    // TODO: Implement
-
     // MARK: - Init
 
     init(interactor: Interactor, 

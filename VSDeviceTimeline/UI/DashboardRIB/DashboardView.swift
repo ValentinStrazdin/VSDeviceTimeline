@@ -11,11 +11,7 @@ protocol DashboardViewEventsHandler: AnyObject {
 
 }
 
-protocol DashboardView: AnyObject {
-
-    // TODO: DashboardView contract for DashboardPresenter
-
-}
+protocol DashboardView: AnyObject { }
 
 
 protocol DashboardEmbedable: AnyObject {

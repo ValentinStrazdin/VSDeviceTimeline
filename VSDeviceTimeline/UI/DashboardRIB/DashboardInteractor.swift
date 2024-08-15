@@ -1,10 +1,6 @@
 // MARK: - Protocol
 
-protocol DashboardListener: AnyObject {
-    
-    // TODO: DashboardListener is an output of Dashboard RIB
-    
-}
+protocol DashboardListener: AnyObject { }
 
 protocol DashboardInteractor: AnyObject {
 
@@ -49,8 +45,6 @@ final class DashboardInteractorImpl: BaseInteractor {
 
         self.timelineIntervals = deviceUsageReportsManager.timelineData?.intervals
         self.forbiddenIntervals = deviceControlSettingsProvider.settings.forbiddenIntervals
-
-        // TODO: Implement
     }
 
     // MARK: - Override Interactor

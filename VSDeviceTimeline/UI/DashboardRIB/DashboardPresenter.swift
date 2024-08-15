@@ -1,10 +1,6 @@
 // MARK: - Protocol
 
-protocol DashboardPresenter: AnyObject {
-
-    // TODO: DashboardPresenter contract for DashboardInteractor
-
-}
+protocol DashboardPresenter: AnyObject { }
 
 // MARK: - Implementation
 
@@ -15,25 +11,15 @@ final class DashboardPresenterImpl {
     weak var interactor: DashboardInteractor?
     weak var view: DashboardView?
 
-    // MARK: - Private Properties
-
-    // TODO: Implement
-
     // MARK: - Init
 
-    init() {
-        // TODO: Implement
-    }
+    init() { }
 
 }
 
 // MARK: - Protocol DashboardPresenter
 
-extension DashboardPresenterImpl: DashboardPresenter {
-
-    // TODO: Implement DashboardPresenter protocol
-
-}
+extension DashboardPresenterImpl: DashboardPresenter { }
 
 // MARK: - Protocol DashboardViewEventsHandler
 
