@@ -7,7 +7,6 @@ protocol DeviceWorkTimelinePresenter: AnyObject {
     func presentFreeMode()
     func presentPremium(
         timelinePosition: CGFloat,
-        settings: DeviceUsageControlSettings,
         timelineData: DeviceUsageTimelineData?
     )
 
@@ -48,31 +47,23 @@ final class DeviceWorkTimelinePresenterImpl: DeviceWorkTimelinePresenter {
 
     func presentPremium(
         timelinePosition: CGFloat,
-        settings: DeviceUsageControlSettings,
         timelineData: DeviceUsageTimelineData?
     ) {
         let viewModel: ViewModel
         let legendsConfs: [LegendCellConfigurator]
         if let usageIntervals = timelineData?.intervals {
-            var intervals: [TimelineInterval] = []
             var legendItems: [LegendItem] = [.active]
-            if let forbiddenIntervals = settings.forbiddenIntervals {
-                // We should draw forbiddenIntervals before usageIntervals
-                intervals.append(contentsOf: forbiddenIntervals)
-                legendItems.append(.blocked)
-            }
-            intervals.append(contentsOf: usageIntervals)
-            if intervals.contains(where: { $0.type == .additionalTime }) {
+            if usageIntervals.contains(where: { $0.type == .additionalTime }) {
                 legendItems.append(.additionalTime)
             }
-            if intervals.contains(where: { $0.type == .overtime }) {
+            if usageIntervals.contains(where: { $0.type == .overtime }) {
                 legendItems.append(.overtime)
             }
             legendsConfs = makeLegendsConfs(
                 legendItems: legendItems
             )
             viewModel = ViewModel(
-                intervals: intervals,
+                intervals: usageIntervals,
                 isLegendsHidden: false
             )
         }

@@ -19,7 +19,6 @@ final class DeviceWorkTimelineInteractorImpl: BaseInteractor {
     private let presenter: DeviceWorkTimelinePresenter
     private weak var listener: DeviceWorkTimelineListener?
     private let licenseStatusProvider: LicenseStatusProvidable
-    private let deviceControlSettingsProvider: DeviceControlSettingsProvidable
     private let deviceUsageReportsManager: DeviceUsageReportsManager
     private let timelinePositionProvider: TimelinePositionProvidable
 
@@ -28,14 +27,12 @@ final class DeviceWorkTimelineInteractorImpl: BaseInteractor {
     init(presenter: DeviceWorkTimelinePresenter,
          listener: DeviceWorkTimelineListener?,
          licenseStatusProvider: LicenseStatusProvidable,
-         deviceControlSettingsProvider: DeviceControlSettingsProvidable,
          deviceUsageReportsManager: DeviceUsageReportsManager,
          timelinePositionProvider: TimelinePositionProvidable) {
 
         self.presenter = presenter
         self.listener = listener
         self.licenseStatusProvider = licenseStatusProvider
-        self.deviceControlSettingsProvider = deviceControlSettingsProvider
         self.deviceUsageReportsManager = deviceUsageReportsManager
         self.timelinePositionProvider = timelinePositionProvider
     }
@@ -59,13 +56,11 @@ final class DeviceWorkTimelineInteractorImpl: BaseInteractor {
 
     private func startObserving() {
         licenseStatusProvider.addObserver(self)
-        deviceControlSettingsProvider.addObserver(self)
         deviceUsageReportsManager.addObserver(self)
     }
 
     private func stopObserving() {
         licenseStatusProvider.removeObserver(self)
-        deviceControlSettingsProvider.removeObserver(self)
         deviceUsageReportsManager.removeObserver(self)
     }
 
@@ -78,12 +73,10 @@ final class DeviceWorkTimelineInteractorImpl: BaseInteractor {
 
         case .premium:
             let timelinePosition = self.timelinePositionProvider.timelinePosition
-            let settings = self.deviceControlSettingsProvider.settings
             let timelineData = deviceUsageReportsManager.timelineData
             DispatchQueue.main.async { [weak self] in
                 self?.presenter.presentPremium(
                     timelinePosition: timelinePosition,
-                    settings: settings,
                     timelineData: timelineData
                 )
             }
@@ -99,16 +92,6 @@ extension DeviceWorkTimelineInteractorImpl: DeviceWorkTimelineInteractor { }
 extension DeviceWorkTimelineInteractorImpl: LicenseStatusObserver {
 
     func licenseStatusChanged(_ licenseStatus: LicenseStatus) {
-        configure()
-    }
-
-}
-
-// MARK: - Protocol DeviceControlSettingsObserver
-
-extension DeviceWorkTimelineInteractorImpl: DeviceControlSettingsObserver {
-
-    func deviceControlSettingsChanged(_ settings: DeviceUsageControlSettings) {
         configure()
     }
 

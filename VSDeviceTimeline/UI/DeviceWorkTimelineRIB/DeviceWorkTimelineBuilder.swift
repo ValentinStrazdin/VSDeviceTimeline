@@ -38,7 +38,6 @@ final class DeviceWorkTimelineBuilder: Builder {
             presenter: presenter,
             listener: listener,
             licenseStatusProvider: component.licenseStatusProvider,
-            deviceControlSettingsProvider: component.deviceControlSettingsProvider,
             deviceUsageReportsManager: component.deviceUsageReportsManager,
             timelinePositionProvider: component.timelinePositionProvider
         )
@@ -61,7 +60,6 @@ extension DeviceWorkTimelineBuilder {
 
     struct Component {
         let licenseStatusProvider: LicenseStatusProvidable
-        let deviceControlSettingsProvider: DeviceControlSettingsProvidable
         let deviceUsageReportsManager: DeviceUsageReportsManager
         let timelinePositionProvider: TimelinePositionProvidable
     }
@@ -81,7 +79,6 @@ extension RootServicesProvider: DeviceWorkTimelineComponentFactory {
     func makeComponent() -> DeviceWorkTimelineBuilder.Component {
         .init(
             licenseStatusProvider: rootServicesContainer.licenseStatusProvider,
-            deviceControlSettingsProvider: rootServicesContainer.deviceControlSettingsProvider,
             deviceUsageReportsManager: rootServicesContainer.deviceUsageReportsManager,
             timelinePositionProvider: TimelinePositionProvider()
         )

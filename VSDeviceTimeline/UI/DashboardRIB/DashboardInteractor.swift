@@ -23,28 +23,23 @@ final class DashboardInteractorImpl: BaseInteractor {
     private let presenter: DashboardPresenter
     private weak var listener: DashboardListener?
     private let licenseStatusProvider: LicenseStatusProvidable
-    private let deviceControlSettingsProvider: DeviceControlSettingsProvidable
     private let deviceUsageReportsManager: DeviceUsageReportsManager
 
     private var timelineIntervals: [TimelineInterval]?
-    private var forbiddenIntervals: [TimelineInterval]?
 
     // MARK: - Init
 
     init(presenter: DashboardPresenter,
          listener: DashboardListener?,
          licenseStatusProvider: LicenseStatusProvidable,
-         deviceControlSettingsProvider: DeviceControlSettingsProvidable,
          deviceUsageReportsManager: DeviceUsageReportsManager) {
 
         self.presenter = presenter
         self.listener = listener
         self.licenseStatusProvider = licenseStatusProvider
-        self.deviceControlSettingsProvider = deviceControlSettingsProvider
         self.deviceUsageReportsManager = deviceUsageReportsManager
 
         self.timelineIntervals = deviceUsageReportsManager.timelineData?.intervals
-        self.forbiddenIntervals = deviceControlSettingsProvider.settings.forbiddenIntervals
     }
 
     // MARK: - Override Interactor
@@ -67,12 +62,6 @@ final class DashboardInteractorImpl: BaseInteractor {
         timelineIntervals?.removeAll(where: { $0.type == type })
         let timelineData = DeviceUsageTimelineData(intervals: timelineIntervals)
         deviceUsageReportsManager.updateTimelineData(timelineData)
-    }
-
-    private func updateForbiddenIntervals(_ intervals: [TimelineInterval]?) {
-        forbiddenIntervals = intervals
-        let settings = DeviceUsageControlSettings(forbiddenIntervals: forbiddenIntervals)
-        deviceControlSettingsProvider.updateSettings(settings)
     }
 
 }
@@ -105,7 +94,7 @@ extension DashboardInteractorImpl: DashboardInteractor {
             updateTimelineIntervals(TimelineInterval.overtimeIntervals)
 
         case .block:
-            updateForbiddenIntervals(TimelineInterval.blockIntervals)
+            updateTimelineIntervals(TimelineInterval.blockIntervals)
         }
     }
 
@@ -114,13 +103,7 @@ extension DashboardInteractorImpl: DashboardInteractor {
             return
         }
 
-        switch type {
-        case .active, .additionalTime, .overtime:
-            removeTimelineIntervals(type: type)
-
-        case .block:
-            updateForbiddenIntervals(nil)
-        }
+        removeTimelineIntervals(type: type)
     }
 
 }
