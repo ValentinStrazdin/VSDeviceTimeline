@@ -22,11 +22,11 @@ final class TimelineChartRenderer: BarLineScatterCandleBubbleRenderer {
     // MARK: - Overrides
 
     override func drawData(context: CGContext) {
-        guard let data = dataProvider?.data,
+        guard let dataProvider = dataProvider,
+              let data = dataProvider.data,
               let dataSets = data.dataSets as? [BarLineScatterCandleBubbleChartDataSet],
               let dataSet = dataSets.first(where: { $0.isVisible }),
-              !dataSet.isEmpty,
-              let dataProvider = dataProvider else {
+              !dataSet.isEmpty else {
             return
         }
 

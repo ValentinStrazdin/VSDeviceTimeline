@@ -2,19 +2,24 @@ import Foundation
 
 public struct TimelineInterval: Comparable, Equatable {
 
-    // MARK: - Types
+    // MARK: - Public Types
+
+    public enum IntervalType {
+        case active
+        case additionalTime
+        case overtime
+        case block
+    }
 
     public typealias Minute = Double
+
+    // MARK: - Public Properties
 
     public let start: Minute
     public let end: Minute
     public let type: IntervalType
 
-    public init(start: Minute, end: Minute, type: IntervalType = .active) {
-        self.start = start
-        self.end = end
-        self.type = type
-    }
+    // MARK: - Internal Properties
 
     var length: Minute {
         end - start
@@ -25,31 +30,18 @@ public struct TimelineInterval: Comparable, Equatable {
         .init(start: -end, end: -start, type: type)
     }
 
-    func contains(time: Double) -> Bool {
-        time >= start && time <= end
-    }
+    // MARK: - Init
 
-    func isAfter(time: Double) -> Bool {
-        start > time
+    public init(start: Minute, end: Minute, type: IntervalType = .active) {
+        self.start = start
+        self.end = end
+        self.type = type
     }
 
     // MARK: - Protocol Comparable
 
     public static func < (lhs: TimelineInterval, rhs: TimelineInterval) -> Bool {
         lhs.start < rhs.start
-    }
-
-}
-
-// MARK: - Extensions
-
-public extension TimelineInterval {
-
-    enum IntervalType {
-        case active
-        case additionalTime
-        case overtime
-        case block
     }
 
 }
