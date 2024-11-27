@@ -1,5 +1,6 @@
 import DGCharts
 import Foundation
+import UIKit
 
 final class TimelineChartXAxisRenderer: XAxisRenderer {
 

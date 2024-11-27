@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E00D2692CF7135D0093F018 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 6E00D2682CF7135D0093F018 /* DGCharts */; };
 		6ECD350C2C650331008EB122 /* UIStoryboard+IdentifiableStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD350B2C650331008EB122 /* UIStoryboard+IdentifiableStoryboard.swift */; };
 		6ECD350E2C650503008EB122 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EF2BE9D2C62161500029A40 /* LaunchScreen.storyboard */; };
 		6ECD35132C650FE0008EB122 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6ECD35112C650FE0008EB122 /* Localizable.strings */; };
@@ -46,8 +47,6 @@
 		6EF2BF5E2C62595000029A40 /* CellConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF5A2C62595000029A40 /* CellConfigurable.swift */; };
 		6EF2BF5F2C62595000029A40 /* CollectionCellConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF5B2C62595000029A40 /* CollectionCellConfigurator.swift */; };
 		6EF2BF622C625A8000029A40 /* UIStackView+ArrangedSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF612C625A8000029A40 /* UIStackView+ArrangedSubviews.swift */; };
-		6EF2BF712C6264FF00029A40 /* DGCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF2BF6B2C62649100029A40 /* DGCharts.framework */; };
-		6EF2BF722C6264FF00029A40 /* DGCharts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF2BF6B2C62649100029A40 /* DGCharts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6EF2BF792C62BD7200029A40 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF742C62BD7200029A40 /* Builder.swift */; };
 		6EF2BF7A2C62BD7200029A40 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF752C62BD7200029A40 /* Interactor.swift */; };
 		6EF2BF7B2C62BD7200029A40 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF762C62BD7200029A40 /* Router.swift */; };
@@ -82,30 +81,6 @@
 		6EF2BFCF2C63B1A900029A40 /* UITraitEnvironment+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFCE2C63B1A900029A40 /* UITraitEnvironment+Extension.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		6EF2BF6A2C62649100029A40 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6EF2BF652C62649100029A40 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
-			remoteInfo = DGCharts;
-		};
-		6EF2BF6C2C62649100029A40 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6EF2BF652C62649100029A40 /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
-			remoteInfo = DGChartsTests;
-		};
-		6EF2BF6F2C6264C900029A40 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6EF2BF652C62649100029A40 /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A58A4ED274A941CA248EA921;
-			remoteInfo = DGCharts;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		6EF2BF732C6264FF00029A40 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -113,7 +88,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6EF2BF722C6264FF00029A40 /* DGCharts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,7 +138,6 @@
 		6EF2BF5A2C62595000029A40 /* CellConfigurable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfigurable.swift; sourceTree = "<group>"; };
 		6EF2BF5B2C62595000029A40 /* CollectionCellConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCellConfigurator.swift; sourceTree = "<group>"; };
 		6EF2BF612C625A8000029A40 /* UIStackView+ArrangedSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+ArrangedSubviews.swift"; sourceTree = "<group>"; };
-		6EF2BF652C62649100029A40 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = Charts/Charts.xcodeproj; sourceTree = "<group>"; };
 		6EF2BF742C62BD7200029A40 /* Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		6EF2BF752C62BD7200029A40 /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		6EF2BF762C62BD7200029A40 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -197,7 +170,6 @@
 		6EF2BFCA2C63951F00029A40 /* Foundation+Locking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Locking.swift"; sourceTree = "<group>"; };
 		6EF2BFCC2C63954900029A40 /* Locking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locking.swift; sourceTree = "<group>"; };
 		6EF2BFCE2C63B1A900029A40 /* UITraitEnvironment+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitEnvironment+Extension.swift"; sourceTree = "<group>"; };
-		D9A28B9A97CF36AE01829B3F /* Pods_VSDeviceTimeline.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VSDeviceTimeline.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,7 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EF2BF712C6264FF00029A40 /* DGCharts.framework in Frameworks */,
+				6E00D2692CF7135D0093F018 /* DGCharts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,8 +210,6 @@
 			children = (
 				6EF2BE912C62161200029A40 /* VSDeviceTimeline */,
 				6EF2BE902C62161200029A40 /* Products */,
-				6EF2BF6E2C6264A200029A40 /* ThirdParty */,
-				8B0D75286C16B9234E1872AA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -364,23 +334,6 @@
 				6EF2BF5B2C62595000029A40 /* CollectionCellConfigurator.swift */,
 			);
 			path = CellConfigurable;
-			sourceTree = "<group>";
-		};
-		6EF2BF662C62649100029A40 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6EF2BF6B2C62649100029A40 /* DGCharts.framework */,
-				6EF2BF6D2C62649100029A40 /* DGChartsTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		6EF2BF6E2C6264A200029A40 /* ThirdParty */ = {
-			isa = PBXGroup;
-			children = (
-				6EF2BF652C62649100029A40 /* Charts.xcodeproj */,
-			);
-			name = ThirdParty;
 			sourceTree = "<group>";
 		};
 		6EF2BF782C62BD7200029A40 /* Riblet */ = {
@@ -558,14 +511,6 @@
 			path = RootServices;
 			sourceTree = "<group>";
 		};
-		8B0D75286C16B9234E1872AA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D9A28B9A97CF36AE01829B3F /* Pods_VSDeviceTimeline.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -581,7 +526,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				6EF2BF702C6264C900029A40 /* PBXTargetDependency */,
 			);
 			name = VSDeviceTimeline;
 			productName = VSDeviceTimeline;
@@ -614,37 +558,17 @@
 				ru,
 			);
 			mainGroup = 6EF2BE862C62161200029A40;
+			packageReferences = (
+				6E00D2672CF7135D0093F018 /* XCRemoteSwiftPackageReference "Charts" */,
+			);
 			productRefGroup = 6EF2BE902C62161200029A40 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 6EF2BF662C62649100029A40 /* Products */;
-					ProjectRef = 6EF2BF652C62649100029A40 /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				6EF2BE8E2C62161200029A40 /* VSDeviceTimeline */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		6EF2BF6B2C62649100029A40 /* DGCharts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = DGCharts.framework;
-			remoteRef = 6EF2BF6A2C62649100029A40 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		6EF2BF6D2C62649100029A40 /* DGChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = DGChartsTests.xctest;
-			remoteRef = 6EF2BF6C2C62649100029A40 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		6EF2BE8D2C62161200029A40 /* Resources */ = {
@@ -736,14 +660,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6EF2BF702C6264C900029A40 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = DGCharts;
-			targetProxy = 6EF2BF6F2C6264C900029A40 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6ECD35112C650FE0008EB122 /* Localizable.strings */ = {
@@ -966,6 +882,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6E00D2672CF7135D0093F018 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danielgindi/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6E00D2682CF7135D0093F018 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6E00D2672CF7135D0093F018 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6EF2BE872C62161200029A40 /* Project object */;
 }
