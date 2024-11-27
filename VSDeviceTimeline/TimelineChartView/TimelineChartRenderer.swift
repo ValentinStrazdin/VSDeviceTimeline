@@ -5,7 +5,6 @@ final class TimelineChartRenderer: BarLineScatterCandleBubbleRenderer {
 
     // MARK: - Private Properties
 
-    private let xBounds = XBounds()
     private weak var dataProvider: BarLineScatterCandleBubbleChartDataProvider?
     private let isLeftToRightUI: Bool
 
