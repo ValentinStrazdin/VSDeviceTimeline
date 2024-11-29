@@ -53,6 +53,9 @@ final class DeviceWorkTimelinePresenterImpl: DeviceWorkTimelinePresenter {
         let legendsConfs: [LegendCellConfigurator]
         if let usageIntervals = timelineData?.intervals {
             var legendItems: [LegendItem] = [.active]
+            if usageIntervals.contains(where: { $0.type == .block }) {
+                legendItems.append(.blocked)
+            }
             if usageIntervals.contains(where: { $0.type == .additionalTime }) {
                 legendItems.append(.additionalTime)
             }
