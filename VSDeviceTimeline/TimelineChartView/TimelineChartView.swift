@@ -19,25 +19,27 @@ final class TimelineChartView: BarLineChartViewBase {
         static let bottomOffset: CGFloat = 1
         static let gridLineWidth: CGFloat = 1
         static let axisYOffset: CGFloat = 4
+        
+        static let axisMinimum: Double =  0 // 0 hours
+        static let axisMaximum: Double = 24 * 60 // 24 hours
+
+        static var labelsCount: Int {
+            Int((axisMaximum - axisMinimum) / 15) + 1 // every 15 minutes
+        }
 
     }
 
-    // MARK: - Internal Properties
-
-    var mode: TimelineChartMode = .free {
+    weak var eventsHandler: TimelineChartViewEventsHandler?
+    
+    var timelinePosition: CGFloat = 0 {
         didSet {
             setupXAsix()
         }
     }
-    weak var eventsHandler: TimelineChartViewEventsHandler?
 
     // MARK: - Init & deinit
 
-    private let isSmallScreen: Bool
-
-    init(frame: CGRect,
-         isSmallScreen: Bool) {
-        self.isSmallScreen = isSmallScreen
+    override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
     }
@@ -86,27 +88,21 @@ final class TimelineChartView: BarLineChartViewBase {
         xAxis.drawGridLinesEnabled = true
         xAxis.drawGridLinesBehindDataEnabled = false
         xAxis.drawAxisLineEnabled = false
-        if isSmallScreen {
-            xAxis.labelFont = .systemFont(ofSize: 6.5, weight: .semibold)
-            xAxis.labelHeight = 15.0
-        }
-        else {
-            xAxis.labelFont = .systemFont(ofSize: 8, weight: .semibold)
-            xAxis.labelHeight = 18.0
-        }
+        xAxis.labelFont = .systemFont(ofSize: 6.5, weight: .semibold)
+        xAxis.labelHeight = 15.0
         xAxis.labelTextColor = .textSecondary
         xAxis.yOffset = Constant.axisYOffset
-        xAxis.axisMinimum = isLeftToRightUI ? mode.axisMinimum : -mode.axisMaximum
-        xAxis.axisMaximum = isLeftToRightUI ? mode.axisMaximum : -mode.axisMinimum
+        xAxis.axisMinimum = isLeftToRightUI ? Constant.axisMinimum : -Constant.axisMaximum
+        xAxis.axisMaximum = isLeftToRightUI ? Constant.axisMaximum : -Constant.axisMinimum
         xAxis.valueFormatter = TimelineMinuteValueFormatter()
-        xAxis.axisMaxLabels = mode.labelsCount
-        xAxis.setLabelCount(mode.labelsCount, force: true)
+        xAxis.axisMaxLabels = Constant.labelsCount
+        xAxis.setLabelCount(Constant.labelsCount, force: true)
         xAxis.gridColor = .standardTertiary.withAlphaComponent(0.5)
         xAxis.gridLineWidth = Constant.gridLineWidth
 
         let transformer = getTransformer(forAxis: .left)
         // We need custom axis renderer to draw circle, pointer outside chart data visible area
-        let actualTimelinePosition = isLeftToRightUI ? mode.timelinePosition : -mode.timelinePosition
+        let actualTimelinePosition = isLeftToRightUI ? timelinePosition : -timelinePosition
         xAxisRenderer = TimelineChartXAxisRenderer(timelinePosition: actualTimelinePosition,
                                                    timelineColor: .standardSecondary,
                                                    viewPortHandler: viewPortHandler,

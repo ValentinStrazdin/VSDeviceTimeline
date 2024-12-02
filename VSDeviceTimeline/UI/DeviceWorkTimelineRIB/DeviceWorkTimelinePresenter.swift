@@ -4,11 +4,7 @@ import Foundation
 
 protocol DeviceWorkTimelinePresenter: AnyObject {
 
-    func presentFreeMode()
-    func presentPremium(
-        timelinePosition: CGFloat,
-        timelineIntervals: [TimelineInterval]
-    )
+    func present(viewModel: DeviceWorkTimeline.ViewModel)
 
 }
 
@@ -37,41 +33,23 @@ final class DeviceWorkTimelinePresenterImpl: DeviceWorkTimelinePresenter {
 
     // MARK: - Internal Methods
 
-    func presentFreeMode() {
-        let viewModel = ViewModel()
-        present(
-            chartMode: .free,
-            viewModel: viewModel
-        )
-    }
-
-    func presentPremium(
-        timelinePosition: CGFloat,
-        timelineIntervals: [TimelineInterval]
-    ) {
+    func present(viewModel: DeviceWorkTimeline.ViewModel) {
         var legendItems: [LegendItem] = [.active]
-        if timelineIntervals.contains(where: { $0.type == .block }) {
+        if viewModel.intervals.contains(where: { $0.type == .block }) {
             legendItems.append(.blocked)
         }
-        if timelineIntervals.contains(where: { $0.type == .additionalTime }) {
+        if viewModel.intervals.contains(where: { $0.type == .additionalTime }) {
             legendItems.append(.additionalTime)
         }
-        if timelineIntervals.contains(where: { $0.type == .overtime }) {
+        if viewModel.intervals.contains(where: { $0.type == .overtime }) {
             legendItems.append(.overtime)
         }
         let legendsConfs = makeLegendsConfs(
             legendItems: legendItems
         )
-        let viewModel = ViewModel(
-            intervals: timelineIntervals,
-            isLegendsHidden: false
-        )
-
+        
         dataManager.items = legendsConfs
-        present(
-            chartMode: .premium(timelinePosition: timelinePosition),
-            viewModel: viewModel
-        )
+        view?.display(viewModel: viewModel)
     }
 
     // MARK: - Private Methods
@@ -89,16 +67,6 @@ final class DeviceWorkTimelinePresenterImpl: DeviceWorkTimelinePresenter {
                     model: model
                 )
             }
-    }
-
-    private func present(
-        chartMode: TimelineChartMode,
-        viewModel: ViewModel
-    ) {
-        view?.display(
-            chartMode: chartMode,
-            viewModel: viewModel
-        )
     }
 
 }

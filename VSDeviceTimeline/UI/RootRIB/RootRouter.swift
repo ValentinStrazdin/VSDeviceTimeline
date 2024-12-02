@@ -22,18 +22,15 @@ final class RootRouterImpl: BaseRouter, ViewableRouter {
     // MARK: - Private Properties
 
     private let controller: ContainerViewController
-    private let rootServicesProvider: RootServicesProvider
 
     private var childRouter: ViewableRouter?
 
     // MARK: - Init
 
     init(interactor: RootInteractor,
-         viewController: ContainerViewController,
-         rootServicesProvider: RootServicesProvider) {
+         viewController: ContainerViewController) {
 
         self.controller = viewController
-        self.rootServicesProvider = rootServicesProvider
 
         super.init(interactor: interactor)
     }
@@ -82,9 +79,7 @@ extension RootRouterImpl: RootRouter {
     }
 
     func attachDashboard() {
-        let router = DashboardBuilder(
-            factory: rootServicesProvider
-        ).build()
+        let router = DashboardBuilder().build()
         attachAndEmbed(router)
     }
 

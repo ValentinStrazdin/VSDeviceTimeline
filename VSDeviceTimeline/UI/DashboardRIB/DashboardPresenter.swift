@@ -20,14 +20,3 @@ final class DashboardPresenterImpl {
 // MARK: - Protocol DashboardPresenter
 
 extension DashboardPresenterImpl: DashboardPresenter { }
-
-// MARK: - Protocol DashboardViewEventsHandler
-
-extension DashboardPresenterImpl: DashboardViewEventsHandler {
-
-    func didChangeLicenseType(isFreeMode: Bool) {
-        let licenseStatus: LicenseStatus = isFreeMode ? .free : .premium
-        interactor?.updateLicenseStatus(licenseStatus)
-    }
-
-}

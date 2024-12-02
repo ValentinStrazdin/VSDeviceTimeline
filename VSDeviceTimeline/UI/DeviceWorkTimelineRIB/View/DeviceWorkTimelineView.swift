@@ -7,10 +7,7 @@ protocol DeviceWorkTimelineViewEventsHandler: AnyObject { }
 
 protocol DeviceWorkTimelineView: AnyObject {
 
-    func display(
-        chartMode: TimelineChartMode,
-        viewModel: DeviceWorkTimeline.ViewModel?
-    )
+    func display(viewModel: DeviceWorkTimeline.ViewModel)
 
 }
 
@@ -113,25 +110,16 @@ final class DeviceWorkTimelineViewImpl: UIViewController {
         scrollView.showsVerticalScrollIndicator = false
         scrollView.backgroundColor = .clear
         scrollView.delegate = self
+        scrollView.isScrollEnabled = true
         return scrollView
     }()
 
     private lazy var chartView: TimelineChartView = {
         let isSmallScreen = UIScreen.main.bounds.width <= 320
-        let chartView = TimelineChartView(
-            frame: view.bounds,
-            isSmallScreen: isSmallScreen
-        )
+        let chartView = TimelineChartView(frame: view.bounds)
         chartView.translatesAutoresizingMaskIntoConstraints = false
         chartView.eventsHandler = self
         return chartView
-    }()
-
-    private lazy var chartImageView: UIImageView = {
-        let imageView = UIImageView().prepareForAutoLayout()
-        imageView.image = view.isLeftToRightUI ? Icon.chartFreeLeft : Icon.chartFreeRight
-        imageView.isHidden = true
-        return imageView
     }()
 
     private lazy var legendsView = LegendsView(
@@ -158,15 +146,6 @@ final class DeviceWorkTimelineViewImpl: UIViewController {
         imageView.tintColor = .standardDisabled
         return imageView
     }()
-
-    private var chartMode: TimelineChartMode = .free {
-        didSet {
-            guard isViewLoaded else {
-                return
-            }
-            updateViews(chartMode: chartMode)
-        }
-    }
 
     private var viewModel: ViewModel? {
         didSet {
@@ -207,7 +186,6 @@ final class DeviceWorkTimelineViewImpl: UIViewController {
         view.addSubview(contentStackView)
         chartContainerView.addSubviews([
             leftArrow,
-            chartImageView,
             chartScrollView,
             rightArrow
         ])
@@ -273,20 +251,6 @@ final class DeviceWorkTimelineViewImpl: UIViewController {
             chartView.heightAnchor.constraint(equalTo: chartScrollView.heightAnchor),
             chartViewWidth,
 
-            chartImageView.leftAnchor.constraint(
-                equalTo: leftArrow.rightAnchor,
-                constant: Constant.chartImageOffsetLeft
-            ),
-            chartImageView.centerYAnchor.constraint(
-                equalTo: chartContainerView.centerYAnchor,
-                constant: Constant.arrowYOffset
-            ),
-            chartImageView.rightAnchor.constraint(
-                equalTo: rightArrow.leftAnchor,
-                constant: -Constant.chartImageOffsetRight
-            ),
-            chartImageView.heightAnchor.constraint(equalToConstant: Constant.chartImageHeight),
-
             leftArrow.leftAnchor.constraint(equalTo: chartContainerView.leftAnchor),
             leftArrow.centerYAnchor.constraint(
                 equalTo: chartContainerView.centerYAnchor,
@@ -306,81 +270,47 @@ final class DeviceWorkTimelineViewImpl: UIViewController {
     }
 
     private func presentViewModel(_ viewModel: ViewModel) {
-        setupChartView(intervals: viewModel.intervals)
+        setupChartView(viewModel: viewModel)
         updateChartViewConstraints()
-
-        legendsContainer.isHidden = viewModel.isLegendsHidden
     }
 
-    private func updateViews(chartMode: TimelineChartMode) {
-        switch chartMode {
-        case .free:
-            chartImageView.isHidden = false
-            chartScrollView.isScrollEnabled = false
-            arrows.forEach { $0.isHidden = false }
-
-        case .premium:
-            chartImageView.isHidden = true
-            chartScrollView.isScrollEnabled = true
+    private func setupChartView(viewModel: ViewModel) {
+        chartView.timelinePosition = viewModel.timelinePosition
+        var intervals = viewModel.intervals
+        if view.isRightToLeftUI {
+            intervals = intervals
+                .map { $0.inverted }
+                .sorted()
         }
-    }
-
-    private func setupChartView(
-        intervals: [TimelineInterval] = []
-    ) {
-        chartView.mode = chartMode
-        switch chartMode {
-        case .premium:
-            var intervals = intervals
-            if view.isRightToLeftUI {
-                intervals = intervals
-                    .map { $0.inverted }
-                    .sorted()
-            }
-            let values: [TimelineChartDataEntry] = intervals.map {
-                .init(
-                    timelineInterval: $0
-                )
-            }
-            let dataSet = TimelineChartDataSet(values)
-            chartView.data = ChartData(dataSets: [dataSet])
-
-        case .free:
-            chartView.data = ChartData(dataSets: [])
+        let values: [TimelineChartDataEntry] = intervals.map {
+            .init(
+                timelineInterval: $0
+            )
         }
+        let dataSet = TimelineChartDataSet(values)
+        chartView.data = ChartData(dataSets: [dataSet])
     }
 
     private func updateChartViewConstraints() {
         chartViewWidth?.isActive = false
-        switch chartMode {
-        case .premium:
-            // We display 2 hours from 24 hours
-            let multiplier = Constant.twentyFourHours / Constant.twoHours
-            // We need extra space on scroll view to display first and last label
-            let extraSpace: CGFloat = multiplier * TimelineChartView.axisLabelWidth
-            chartViewWidth = chartView.widthAnchor.constraint(
-                equalTo: chartScrollView.widthAnchor,
-                multiplier: multiplier,
-                constant: -extraSpace
-            )
-
-        case .free:
-            chartViewWidth = chartView.widthAnchor.constraint(
-                equalTo: chartScrollView.widthAnchor
-            )
-        }
+        // We display 2 hours from 24 hours
+        let multiplier = Constant.twentyFourHours / Constant.twoHours
+        // We need extra space on scroll view to display first and last label
+        let extraSpace: CGFloat = multiplier * TimelineChartView.axisLabelWidth
+        chartViewWidth = chartView.widthAnchor.constraint(
+            equalTo: chartScrollView.widthAnchor,
+            multiplier: multiplier,
+            constant: -extraSpace
+        )
         chartViewWidth?.isActive = true
     }
 
     private func updateSizeClassDependentConstraints() {
-        guard case .premium = chartMode else {
-            return
-        }
         legendsView.invalidateLayout()
     }
 
     private func scrollToCurrentTime() {
-        guard case .premium(let timelinePosition) = chartMode else {
+        guard let timelinePosition = viewModel?.timelinePosition else {
             return
         }
         let offsetX = getScrollOffset(for: timelinePosition)
@@ -420,11 +350,7 @@ final class DeviceWorkTimelineViewImpl: UIViewController {
 
 extension DeviceWorkTimelineViewImpl: DeviceWorkTimelineView {
 
-    func display(
-        chartMode: TimelineChartMode,
-        viewModel: DeviceWorkTimeline.ViewModel?
-    ) {
-        self.chartMode = chartMode
+    func display(viewModel: DeviceWorkTimeline.ViewModel) {
         self.viewModel = viewModel
         legendsView.reload()
     }

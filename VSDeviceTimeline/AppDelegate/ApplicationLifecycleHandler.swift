@@ -12,14 +12,6 @@ class ApplicationLifecycleHandlerImpl: ApplicationLifecycleHandler {
 
     static let shared: ApplicationLifecycleHandler = ApplicationLifecycleHandlerImpl()
 
-    // MARK: - Private Properties
-
-    private let rootServicesContainer = RootServicesContainerImpl()
-
-    private lazy var rootServicesProvider: RootServicesProvider = {
-        RootServicesProvider(rootServicesContainerImpl: rootServicesContainer)
-    }()
-
     private var rootRouter: ViewableRouter? {
         willSet {
             if let currentRouter = rootRouter {
@@ -69,7 +61,7 @@ class ApplicationLifecycleHandlerImpl: ApplicationLifecycleHandler {
     }
 
     private func makeRootRouter() -> ViewableRouter {
-        RootBuilder(factory: rootServicesProvider).build()
+        RootBuilder().build()
     }
 
 }

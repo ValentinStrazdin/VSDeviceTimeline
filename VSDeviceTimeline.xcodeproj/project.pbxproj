@@ -14,7 +14,6 @@
 		6ECD359D2C6510CD008EB122 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD359C2C6510CD008EB122 /* String+Localized.swift */; };
 		6ECD359F2C651136008EB122 /* Localization+DeviceWorkTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD359E2C651136008EB122 /* Localization+DeviceWorkTimeline.swift */; };
 		6ECD35A32C65196D008EB122 /* Localization+Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD35A22C65196D008EB122 /* Localization+Dashboard.swift */; };
-		6ECD35A72C6524B9008EB122 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD35A62C6524B9008EB122 /* CustomButton.swift */; };
 		6ECD35A92C6610D1008EB122 /* TimelineInterval+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ECD35A82C6610D1008EB122 /* TimelineInterval+Helpers.swift */; };
 		6EF2BE932C62161200029A40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BE922C62161200029A40 /* AppDelegate.swift */; };
 		6EF2BE952C62161200029A40 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BE942C62161200029A40 /* SceneDelegate.swift */; };
@@ -23,7 +22,6 @@
 		6EF2BF322C62348000029A40 /* TimelinePositionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF1E2C62347F00029A40 /* TimelinePositionProvider.swift */; };
 		6EF2BF332C62348000029A40 /* TimelineChartDataEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF202C62347F00029A40 /* TimelineChartDataEntry.swift */; };
 		6EF2BF342C62348000029A40 /* TimelineInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF212C62347F00029A40 /* TimelineInterval.swift */; };
-		6EF2BF352C62348000029A40 /* TimelineChartMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF232C62347F00029A40 /* TimelineChartMode.swift */; };
 		6EF2BF362C62348000029A40 /* TimelineChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF242C62347F00029A40 /* TimelineChartRenderer.swift */; };
 		6EF2BF372C62348000029A40 /* TimelineChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF252C62347F00029A40 /* TimelineChartView.swift */; };
 		6EF2BF382C62348000029A40 /* TimelineChartXAxisRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF262C62347F00029A40 /* TimelineChartXAxisRenderer.swift */; };
@@ -68,10 +66,6 @@
 		6EF2BFB52C637AA300029A40 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFAF2C637AA300029A40 /* DashboardRouter.swift */; };
 		6EF2BFB62C637AA300029A40 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFB02C637AA300029A40 /* DashboardView.swift */; };
 		6EF2BFBC2C63810100029A40 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFBB2C63810100029A40 /* Observable.swift */; };
-		6EF2BFC12C6384B500029A40 /* LicenseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFC02C6384B500029A40 /* LicenseStatus.swift */; };
-		6EF2BFC32C6384E500029A40 /* LicenseStatusProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFC22C6384E500029A40 /* LicenseStatusProvider.swift */; };
-		6EF2BFC72C638E2600029A40 /* RootServicesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFC62C638E2600029A40 /* RootServicesContainer.swift */; };
-		6EF2BFC92C638E3500029A40 /* RootServicesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFC82C638E3500029A40 /* RootServicesProvider.swift */; };
 		6EF2BFCB2C63951F00029A40 /* Foundation+Locking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFCA2C63951F00029A40 /* Foundation+Locking.swift */; };
 		6EF2BFCD2C63954900029A40 /* Locking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFCC2C63954900029A40 /* Locking.swift */; };
 		6EF2BFCF2C63B1A900029A40 /* UITraitEnvironment+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFCE2C63B1A900029A40 /* UITraitEnvironment+Extension.swift */; };
@@ -98,7 +92,6 @@
 		6ECD35A02C6512AB008EB122 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6ECD35A12C65134F008EB122 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		6ECD35A22C65196D008EB122 /* Localization+Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Localization+Dashboard.swift"; sourceTree = "<group>"; };
-		6ECD35A62C6524B9008EB122 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		6ECD35A82C6610D1008EB122 /* TimelineInterval+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineInterval+Helpers.swift"; sourceTree = "<group>"; };
 		6EF2BE8F2C62161200029A40 /* VSDeviceTimeline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VSDeviceTimeline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF2BE922C62161200029A40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +103,6 @@
 		6EF2BF1E2C62347F00029A40 /* TimelinePositionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelinePositionProvider.swift; sourceTree = "<group>"; };
 		6EF2BF202C62347F00029A40 /* TimelineChartDataEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineChartDataEntry.swift; sourceTree = "<group>"; };
 		6EF2BF212C62347F00029A40 /* TimelineInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineInterval.swift; sourceTree = "<group>"; };
-		6EF2BF232C62347F00029A40 /* TimelineChartMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineChartMode.swift; sourceTree = "<group>"; };
 		6EF2BF242C62347F00029A40 /* TimelineChartRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineChartRenderer.swift; sourceTree = "<group>"; };
 		6EF2BF252C62347F00029A40 /* TimelineChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineChartView.swift; sourceTree = "<group>"; };
 		6EF2BF262C62347F00029A40 /* TimelineChartXAxisRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineChartXAxisRenderer.swift; sourceTree = "<group>"; };
@@ -155,10 +147,6 @@
 		6EF2BFAF2C637AA300029A40 /* DashboardRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
 		6EF2BFB02C637AA300029A40 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		6EF2BFBB2C63810100029A40 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		6EF2BFC02C6384B500029A40 /* LicenseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseStatus.swift; sourceTree = "<group>"; };
-		6EF2BFC22C6384E500029A40 /* LicenseStatusProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseStatusProvider.swift; sourceTree = "<group>"; };
-		6EF2BFC62C638E2600029A40 /* RootServicesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServicesContainer.swift; sourceTree = "<group>"; };
-		6EF2BFC82C638E3500029A40 /* RootServicesProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServicesProvider.swift; sourceTree = "<group>"; };
 		6EF2BFCA2C63951F00029A40 /* Foundation+Locking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+Locking.swift"; sourceTree = "<group>"; };
 		6EF2BFCC2C63954900029A40 /* Locking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locking.swift; sourceTree = "<group>"; };
 		6EF2BFCE2C63B1A900029A40 /* UITraitEnvironment+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITraitEnvironment+Extension.swift"; sourceTree = "<group>"; };
@@ -247,7 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				6EF2BF222C62347F00029A40 /* Data */,
-				6EF2BF232C62347F00029A40 /* TimelineChartMode.swift */,
 				6EF2BF242C62347F00029A40 /* TimelineChartRenderer.swift */,
 				6EF2BF252C62347F00029A40 /* TimelineChartView.swift */,
 				6EF2BF262C62347F00029A40 /* TimelineChartXAxisRenderer.swift */,
@@ -314,7 +301,6 @@
 			isa = PBXGroup;
 			children = (
 				6EF2BF502C62480500029A40 /* CustomGradientView.swift */,
-				6ECD35A62C6524B9008EB122 /* CustomButton.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -412,7 +398,6 @@
 				6ECD359B2C6510AC008EB122 /* Localization */,
 				6EF2BF7E2C62BF4C00029A40 /* Protocols */,
 				6EF2BF782C62BD7200029A40 /* Riblet */,
-				6EF2BFC42C638DF900029A40 /* Services */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -454,33 +439,6 @@
 				6EF2BFB02C637AA300029A40 /* DashboardView.swift */,
 			);
 			path = DashboardRIB;
-			sourceTree = "<group>";
-		};
-		6EF2BFBF2C63849100029A40 /* LicenseStatusProvider */ = {
-			isa = PBXGroup;
-			children = (
-				6EF2BFC02C6384B500029A40 /* LicenseStatus.swift */,
-				6EF2BFC22C6384E500029A40 /* LicenseStatusProvider.swift */,
-			);
-			path = LicenseStatusProvider;
-			sourceTree = "<group>";
-		};
-		6EF2BFC42C638DF900029A40 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				6EF2BFBF2C63849100029A40 /* LicenseStatusProvider */,
-				6EF2BFC52C638E0F00029A40 /* RootServices */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		6EF2BFC52C638E0F00029A40 /* RootServices */ = {
-			isa = PBXGroup;
-			children = (
-				6EF2BFC62C638E2600029A40 /* RootServicesContainer.swift */,
-				6EF2BFC82C638E3500029A40 /* RootServicesProvider.swift */,
-			);
-			path = RootServices;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -562,7 +520,6 @@
 			files = (
 				6EF2BF8F2C62CBCB00029A40 /* DeviceUsageTimelineDataManager.swift in Sources */,
 				6EF2BF4C2C62443900029A40 /* NSAttributedString+TextStyle.swift in Sources */,
-				6EF2BF352C62348000029A40 /* TimelineChartMode.swift in Sources */,
 				6EF2BFB32C637AA300029A40 /* DashboardInteractor.swift in Sources */,
 				6EF2BF382C62348000029A40 /* TimelineChartXAxisRenderer.swift in Sources */,
 				6EF2BF312C62348000029A40 /* DeviceWorkTimelineView.swift in Sources */,
@@ -576,14 +533,12 @@
 				6EF2BF4A2C62421500029A40 /* CAGradientLayer+Extension.swift in Sources */,
 				6EF2BF3B2C62348000029A40 /* LegendsCollectionView.swift in Sources */,
 				6EF2BF812C62C16900029A40 /* ApplicationLifecycleHandler.swift in Sources */,
-				6EF2BFC92C638E3500029A40 /* RootServicesProvider.swift in Sources */,
 				6EF2BF7B2C62BD7200029A40 /* Router.swift in Sources */,
 				6EF2BF362C62348000029A40 /* TimelineChartRenderer.swift in Sources */,
 				6EF2BF3E2C62348000029A40 /* LegendsView.swift in Sources */,
 				6EF2BFB22C637AA300029A40 /* DashboardBuilder.swift in Sources */,
 				6EF2BF8A2C62C66800029A40 /* RootRouter.swift in Sources */,
 				6EF2BF5F2C62595000029A40 /* CollectionCellConfigurator.swift in Sources */,
-				6EF2BFC72C638E2600029A40 /* RootServicesContainer.swift in Sources */,
 				6EF2BF622C625A8000029A40 /* UIStackView+ArrangedSubviews.swift in Sources */,
 				6EF2BF882C62C65900029A40 /* RootInteractor.swift in Sources */,
 				6EF2BF372C62348000029A40 /* TimelineChartView.swift in Sources */,
@@ -609,7 +564,6 @@
 				6EF2BF7A2C62BD7200029A40 /* Interactor.swift in Sources */,
 				6EF2BF572C6258A100029A40 /* Reusable.swift in Sources */,
 				6EF2BF392C62348000029A40 /* TimelineMinuteValueFormatter.swift in Sources */,
-				6EF2BFC12C6384B500029A40 /* LicenseStatus.swift in Sources */,
 				6EF2BE932C62161200029A40 /* AppDelegate.swift in Sources */,
 				6EF2BF332C62348000029A40 /* TimelineChartDataEntry.swift in Sources */,
 				6EF2BF7C2C62BD7200029A40 /* ViewableRouter.swift in Sources */,
@@ -619,9 +573,7 @@
 				6EF2BF432C62390E00029A40 /* UIColor+HexCode.swift in Sources */,
 				6EF2BF8D2C62CB9500029A40 /* BaseCollectionDataManager.swift in Sources */,
 				6EF2BFCB2C63951F00029A40 /* Foundation+Locking.swift in Sources */,
-				6EF2BFC32C6384E500029A40 /* LicenseStatusProvider.swift in Sources */,
 				6ECD35A92C6610D1008EB122 /* TimelineInterval+Helpers.swift in Sources */,
-				6ECD35A72C6524B9008EB122 /* CustomButton.swift in Sources */,
 				6EF2BF952C62CEA200029A40 /* DeviceWorkTimelinePresenter.swift in Sources */,
 				6ECD359D2C6510CD008EB122 /* String+Localized.swift in Sources */,
 			);

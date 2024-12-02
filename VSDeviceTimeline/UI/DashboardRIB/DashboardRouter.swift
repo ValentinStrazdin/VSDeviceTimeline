@@ -18,7 +18,6 @@ final class DashboardRouterImpl: BaseRouter, ViewableRouter {
 
     // MARK: - Private Properties
 
-    private let rootServicesProvider: RootServicesProvider
     private let subviewsContainer: DashboardEmbedable
 
     private var childRouter: ViewableRouter?
@@ -27,10 +26,8 @@ final class DashboardRouterImpl: BaseRouter, ViewableRouter {
 
     init(interactor: Interactor, 
          view: UIViewController,
-         rootServicesProvider: RootServicesProvider,
          subviewsContainer: DashboardEmbedable) {
         self.viewController = view
-        self.rootServicesProvider = rootServicesProvider
         self.subviewsContainer = subviewsContainer
 
         super.init(interactor: interactor)
@@ -58,9 +55,7 @@ final class DashboardRouterImpl: BaseRouter, ViewableRouter {
 extension DashboardRouterImpl: DashboardRouter {
 
     func attachDeviceWorkTimeline() {
-        let router = DeviceWorkTimelineBuilder(
-            factory: rootServicesProvider
-        ).build()
+        let router = DeviceWorkTimelineBuilder().build()
         guard let deviceWorkTimeView = router.viewController.view else {
             assertionFailure("DeviceWorkTimelineView should be created")
             return

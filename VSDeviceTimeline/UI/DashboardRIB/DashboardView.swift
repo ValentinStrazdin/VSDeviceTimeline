@@ -2,12 +2,6 @@ import UIKit
 
 // MARK: - Protocol
 
-protocol DashboardViewEventsHandler: AnyObject {
-
-    func didChangeLicenseType(isFreeMode: Bool)
-
-}
-
 protocol DashboardView: AnyObject { }
 
 
@@ -28,8 +22,6 @@ final class DashboardViewImpl: UIViewController {
     private enum Constants {
 
         static let timelineCornerRadius: CGFloat = 13
-        static let marginTop: CGFloat = 8
-        static let marginLeft: CGFloat = 16
 
         enum Regular {
 
@@ -45,10 +37,6 @@ final class DashboardViewImpl: UIViewController {
 
     }
 
-    // MARK: - Internal Properties
-
-    weak var eventsHandler: DashboardViewEventsHandler?
-
     // MARK: - Private Properties
 
     private let contentView: UIStackView = {
@@ -58,21 +46,12 @@ final class DashboardViewImpl: UIViewController {
         return stackView
     }()
 
-    private lazy var deviceWorkTimelineContainerView = makeContainer()
-    private lazy var freeModeContainerView = makeContainer()
-    
-    private let freeModeStackView: UIStackView = {
-        let stackView = UIStackView().prepareForAutoLayout()
-        stackView.spacing = 16
-        return stackView
-    }()
-    
-    private lazy var freeModeLabel = makeLabel(title: Localization.freeModeTitle)
-    private lazy var freeModeSwitch: UISwitch = {
-        let switchView = UISwitch().prepareForAutoLayout()
-        switchView.isOn = false
-        switchView.addTarget(self, action: #selector(didChangeFreeModeSwitch), for: .valueChanged)
-        return switchView
+    private lazy var deviceWorkTimelineContainerView: UIView = {
+        let containerView = UIView().prepareForAutoLayout()
+        containerView.backgroundColor = .backgroundPrimary
+        containerView.layer.cornerRadius = Constants.timelineCornerRadius
+        containerView.layer.masksToBounds = true
+        return containerView
     }()
 
     private let emptyView = UIView().prepareForAutoLayout()
@@ -95,14 +74,7 @@ final class DashboardViewImpl: UIViewController {
 
         view.addSubview(contentView)
 
-        freeModeStackView.addArrangedSubviews([
-            freeModeLabel,
-            freeModeSwitch
-        ])
-        freeModeContainerView.addSubview(freeModeStackView)
-
         contentView.addArrangedSubviews([
-            freeModeContainerView,
             deviceWorkTimelineContainerView,
             emptyView
         ])
@@ -127,16 +99,7 @@ final class DashboardViewImpl: UIViewController {
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
-            deviceWorkTimelineHeight,
-            
-            freeModeStackView.topAnchor.constraint(equalTo: freeModeContainerView.topAnchor,
-                                                   constant: Constants.marginTop),
-            freeModeStackView.leadingAnchor.constraint(equalTo: freeModeContainerView.leadingAnchor,
-                                                       constant: Constants.marginLeft),
-            freeModeStackView.trailingAnchor.constraint(equalTo: freeModeContainerView.trailingAnchor,
-                                                        constant: -Constants.marginLeft),
-            freeModeStackView.bottomAnchor.constraint(equalTo: freeModeContainerView.bottomAnchor,
-                                                      constant: -Constants.marginTop)
+            deviceWorkTimelineHeight
         ])
 
         contentRegularConstraints = [
@@ -163,13 +126,6 @@ final class DashboardViewImpl: UIViewController {
         NSLayoutConstraint.activate(toActivate)
     }
 
-    // MARK: - Actions
-    
-    @objc
-    private func didChangeFreeModeSwitch(_ sender: UISwitch) {
-        eventsHandler?.didChangeLicenseType(isFreeMode: sender.isOn)
-    }
-
 }
 
 // MARK: - Protocol DashboardView
@@ -182,29 +138,6 @@ extension DashboardViewImpl {
 
     static func makeView() -> DashboardViewImpl {
         DashboardViewImpl()
-    }
-
-}
-
-extension DashboardViewImpl {
-
-    private func makeLabel(title: String) -> UILabel {
-        let titleLabel = UILabel().prepareForAutoLayout()
-        titleLabel.attributedText = NSAttributedString(
-            string: title,
-            font: .systemFont(ofSize: 16, weight: .medium),
-            textColor: .textPrimary,
-            alignment: .natural
-        )
-        return titleLabel
-    }
-
-    private func makeContainer() -> UIView {
-        let containerView = UIView().prepareForAutoLayout()
-        containerView.backgroundColor = .backgroundPrimary
-        containerView.layer.cornerRadius = Constants.timelineCornerRadius
-        containerView.layer.masksToBounds = true
-        return containerView
     }
 
 }

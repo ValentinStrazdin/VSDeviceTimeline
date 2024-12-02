@@ -5,14 +5,14 @@ enum DeviceWorkTimeline {
     struct ViewModel {
 
         let intervals: [TimelineInterval]
-        let isLegendsHidden: Bool
+        let timelinePosition: CGFloat
 
         init(
             intervals: [TimelineInterval] = [],
-            isLegendsHidden: Bool = true
+            timelinePosition: CGFloat
         ) {
             self.intervals = intervals
-            self.isLegendsHidden = isLegendsHidden
+            self.timelinePosition = timelinePosition
         }
 
     }

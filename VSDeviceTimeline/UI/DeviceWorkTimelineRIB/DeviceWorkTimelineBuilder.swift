@@ -2,27 +2,11 @@ import UIKit
 
 final class DeviceWorkTimelineBuilder: Builder {
 
-    // MARK: - Private Properties
-
-    private let factory: DeviceWorkTimelineComponentFactory
-    private let listener: DeviceWorkTimelineListener?
-
-    // MARK: - Init
-
-    init(
-        factory: DeviceWorkTimelineComponentFactory,
-        listener: DeviceWorkTimelineListener? = nil
-    ) {
-        self.factory = factory
-        self.listener = listener
-    }
-
     // MARK: - Internal Methods
 
     func build() -> ViewableRouter {
-        let component = factory.makeComponent()
-
         let dataManager = DeviceUsageTimelineDataManager()
+        let timelinePositionProvider = TimelinePositionProvider()
 
         let view = DeviceWorkTimelineViewImpl.makeView(
             legendsDataSource: dataManager
@@ -36,9 +20,7 @@ final class DeviceWorkTimelineBuilder: Builder {
 
         let interactor = DeviceWorkTimelineInteractorImpl(
             presenter: presenter,
-            listener: listener,
-            licenseStatusProvider: component.licenseStatusProvider,
-            timelinePositionProvider: component.timelinePositionProvider
+            timelinePositionProvider: timelinePositionProvider
         )
         presenter.interactor = interactor
 
@@ -49,36 +31,6 @@ final class DeviceWorkTimelineBuilder: Builder {
         interactor.router = router
 
         return router
-    }
-
-}
-
-// MARK: - Component
-
-extension DeviceWorkTimelineBuilder {
-
-    struct Component {
-        let licenseStatusProvider: LicenseStatusProvidable
-        let timelinePositionProvider: TimelinePositionProvidable
-    }
-
-}
-
-// MARK: - Component Factory
-
-protocol DeviceWorkTimelineComponentFactory: AnyObject {
-
-    func makeComponent() -> DeviceWorkTimelineBuilder.Component
-
-}
-
-extension RootServicesProvider: DeviceWorkTimelineComponentFactory {
-
-    func makeComponent() -> DeviceWorkTimelineBuilder.Component {
-        .init(
-            licenseStatusProvider: rootServicesContainer.licenseStatusProvider,
-            timelinePositionProvider: TimelinePositionProvider()
-        )
     }
 
 }
