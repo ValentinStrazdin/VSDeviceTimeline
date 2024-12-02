@@ -115,7 +115,6 @@ final class DeviceWorkTimelineViewImpl: UIViewController {
     }()
 
     private lazy var chartView: TimelineChartView = {
-        let isSmallScreen = UIScreen.main.bounds.width <= 320
         let chartView = TimelineChartView(frame: view.bounds)
         chartView.translatesAutoresizingMaskIntoConstraints = false
         chartView.eventsHandler = self
