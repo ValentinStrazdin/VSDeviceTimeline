@@ -10,11 +10,7 @@ extension String {
 
         }
 
-        enum Dashboard {
-
-            enum Button { }
-
-        }
+        enum Dashboard { }
 
     }
 

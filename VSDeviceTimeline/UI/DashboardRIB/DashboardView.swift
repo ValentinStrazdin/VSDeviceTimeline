@@ -4,10 +4,7 @@ import UIKit
 
 protocol DashboardViewEventsHandler: AnyObject {
 
-    func didTapFreeMode()
-    func didTapPremiumMode()
-    func didTapAddIntervals(type: TimelineInterval.IntervalType)
-    func didTapRemoveIntervals(type: TimelineInterval.IntervalType)
+    func didChangeLicenseType(isFreeMode: Bool)
 
 }
 
@@ -31,6 +28,8 @@ final class DashboardViewImpl: UIViewController {
     private enum Constants {
 
         static let timelineCornerRadius: CGFloat = 13
+        static let marginTop: CGFloat = 8
+        static let marginLeft: CGFloat = 16
 
         enum Regular {
 
@@ -59,106 +58,24 @@ final class DashboardViewImpl: UIViewController {
         return stackView
     }()
 
-    private lazy var deviceWorkTimelineContainerView: UIView = {
-        let containerView = UIView().prepareForAutoLayout()
-        containerView.backgroundColor = .backgroundPrimary
-        containerView.layer.cornerRadius = Constants.timelineCornerRadius
-        containerView.layer.masksToBounds = true
-        return containerView
-    }()
-
-    private let buttonsContainerView: UIStackView = {
+    private lazy var deviceWorkTimelineContainerView = makeContainer()
+    private lazy var freeModeContainerView = makeContainer()
+    
+    private let freeModeStackView: UIStackView = {
         let stackView = UIStackView().prepareForAutoLayout()
-        stackView.axis = .vertical
         stackView.spacing = 16
         return stackView
     }()
+    
+    private lazy var freeModeLabel = makeLabel(title: Localization.freeModeTitle)
+    private lazy var freeModeSwitch: UISwitch = {
+        let switchView = UISwitch().prepareForAutoLayout()
+        switchView.isOn = false
+        switchView.addTarget(self, action: #selector(didChangeFreeModeSwitch), for: .valueChanged)
+        return switchView
+    }()
 
     private let emptyView = UIView().prepareForAutoLayout()
-
-    private lazy var licenseButtonsContainerView = makeButtonsContainer()
-
-    private lazy var freeModeButton: CustomButton = {
-        let button = CustomButton().prepareForAutoLayout()
-        button.setTitle(Localization.Button.freeModeTitle, for: .normal)
-        button.addTarget(self, action: #selector(didTapFreeModeButton), for: .touchUpInside)
-        return button
-    }()
-
-    private lazy var premiumModeButton: CustomButton = {
-        let button = CustomButton().prepareForAutoLayout()
-        button.setTitle(Localization.Button.premiumModeTitle, for: .normal)
-        button.addTarget(self, action: #selector(didTapPremiumModeButton), for: .touchUpInside)
-        return button
-    }()
-
-    private lazy var usageIntervalsLabel = makeLabel(title: Localization.usageIntervals)
-    private lazy var usageIntervalsButtonsContainerView = makeButtonsContainer()
-
-    private lazy var addUsageIntervalsButton: CustomButton = {
-        let button = CustomButton().prepareForAutoLayout()
-        button.setTitle(Localization.Button.addTitle, for: .normal)
-        button.addTarget(self, action: #selector(didTapAddUsageIntervalsButton), for: .touchUpInside)
-        return button
-    }()
-
-    private lazy var removeUsageIntervalsButton: CustomButton = {
-        let button = CustomButton().prepareForAutoLayout()
-        button.setTitle(Localization.Button.removeTitle, for: .normal)
-        button.addTarget(self, action: #selector(didTapRemoveUsageIntervalsButton), for: .touchUpInside)
-        return button
-    }()
-
-    private lazy var blockIntervalsLabel = makeLabel(title: Localization.blockIntervals)
-    private lazy var blockIntervalsButtonsContainerView = makeButtonsContainer()
-
-    private lazy var addBlockIntervalsButton: CustomButton = {
-        let button = CustomButton().prepareForAutoLayout()
-        button.setTitle(Localization.Button.addTitle, for: .normal)
-        button.addTarget(self, action: #selector(didTapAddBlockIntervalsButton), for: .touchUpInside)
-        return button
-    }()
-
-    private lazy var removeBlockIntervalsButton: CustomButton = {
-        let button = CustomButton().prepareForAutoLayout()
-        button.setTitle(Localization.Button.removeTitle, for: .normal)
-        button.addTarget(self, action: #selector(didTapRemoveBlockIntervalsButton), for: .touchUpInside)
-        return button
-    }()
-
-    private lazy var overTimeIntervalsLabel = makeLabel(title: Localization.overtimeIntervals)
-    private lazy var overtimeIntervalsButtonsContainerView = makeButtonsContainer()
-
-    private lazy var addOvertimeIntervalsButton: CustomButton = {
-        let button = CustomButton().prepareForAutoLayout()
-        button.setTitle(Localization.Button.addTitle, for: .normal)
-        button.addTarget(self, action: #selector(didTapAddOvertimeIntervalsButton), for: .touchUpInside)
-        return button
-    }()
-
-    private lazy var removeOvertimeIntervalsButton: CustomButton = {
-        let button = CustomButton().prepareForAutoLayout()
-        button.setTitle(Localization.Button.removeTitle, for: .normal)
-        button.addTarget(self, action: #selector(didTapRemoveOvertimeIntervalsButton), for: .touchUpInside)
-        return button
-    }()
-
-    private lazy var additionalTimeIntervalsLabel = makeLabel(title: Localization.additionalTimeIntervals)
-    private lazy var additionalTimeIntervalsButtonsContainerView = makeButtonsContainer()
-
-    private lazy var addAdditionalTimeIntervalsButton: CustomButton = {
-        let button = CustomButton().prepareForAutoLayout()
-        button.setTitle(Localization.Button.addTitle, for: .normal)
-        button.addTarget(self, action: #selector(didTapAddAdditionalTimeIntervalsButton), for: .touchUpInside)
-        return button
-    }()
-
-    private lazy var removeAdditionalTimeIntervalsButton: CustomButton = {
-        let button = CustomButton().prepareForAutoLayout()
-        button.setTitle(Localization.Button.removeTitle, for: .normal)
-        button.addTarget(self, action: #selector(didTapRemoveAdditionalTimeIntervalsButton), for: .touchUpInside)
-        return button
-    }()
 
     private var contentRegularConstraints: [NSLayoutConstraint] = []
     private var contentCompactConstraints: [NSLayoutConstraint] = []
@@ -178,50 +95,15 @@ final class DashboardViewImpl: UIViewController {
 
         view.addSubview(contentView)
 
-        licenseButtonsContainerView.addArrangedSubviews([
-            freeModeButton,
-            premiumModeButton
+        freeModeStackView.addArrangedSubviews([
+            freeModeLabel,
+            freeModeSwitch
         ])
-
-        usageIntervalsButtonsContainerView.addArrangedSubviews([
-            addUsageIntervalsButton,
-            removeUsageIntervalsButton
-        ])
-
-        blockIntervalsButtonsContainerView.addArrangedSubviews([
-            addBlockIntervalsButton,
-            removeBlockIntervalsButton
-        ])
-
-        overtimeIntervalsButtonsContainerView.addArrangedSubviews([
-            addOvertimeIntervalsButton,
-            removeOvertimeIntervalsButton
-        ])
-
-        additionalTimeIntervalsButtonsContainerView.addArrangedSubviews([
-            addAdditionalTimeIntervalsButton,
-            removeAdditionalTimeIntervalsButton
-        ])
-
-        buttonsContainerView.addArrangedSubviews([
-            licenseButtonsContainerView,
-            makeSpacerView(height: 10),
-            usageIntervalsLabel,
-            usageIntervalsButtonsContainerView,
-            makeSpacerView(height: 10),
-            blockIntervalsLabel,
-            blockIntervalsButtonsContainerView,
-            makeSpacerView(height: 10),
-            overTimeIntervalsLabel,
-            overtimeIntervalsButtonsContainerView,
-            makeSpacerView(height: 10),
-            additionalTimeIntervalsLabel,
-            additionalTimeIntervalsButtonsContainerView
-        ])
+        freeModeContainerView.addSubview(freeModeStackView)
 
         contentView.addArrangedSubviews([
+            freeModeContainerView,
             deviceWorkTimelineContainerView,
-            buttonsContainerView,
             emptyView
         ])
     }
@@ -245,7 +127,16 @@ final class DashboardViewImpl: UIViewController {
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
-            deviceWorkTimelineHeight
+            deviceWorkTimelineHeight,
+            
+            freeModeStackView.topAnchor.constraint(equalTo: freeModeContainerView.topAnchor,
+                                                   constant: Constants.marginTop),
+            freeModeStackView.leadingAnchor.constraint(equalTo: freeModeContainerView.leadingAnchor,
+                                                       constant: Constants.marginLeft),
+            freeModeStackView.trailingAnchor.constraint(equalTo: freeModeContainerView.trailingAnchor,
+                                                        constant: -Constants.marginLeft),
+            freeModeStackView.bottomAnchor.constraint(equalTo: freeModeContainerView.bottomAnchor,
+                                                      constant: -Constants.marginTop)
         ])
 
         contentRegularConstraints = [
@@ -273,55 +164,10 @@ final class DashboardViewImpl: UIViewController {
     }
 
     // MARK: - Actions
-
+    
     @objc
-    private func didTapFreeModeButton() {
-        eventsHandler?.didTapFreeMode()
-    }
-
-    @objc
-    private func didTapPremiumModeButton() {
-        eventsHandler?.didTapPremiumMode()
-    }
-
-    @objc
-    private func didTapAddUsageIntervalsButton() {
-        eventsHandler?.didTapAddIntervals(type: .active)
-    }
-
-    @objc
-    private func didTapRemoveUsageIntervalsButton() {
-        eventsHandler?.didTapRemoveIntervals(type: .active)
-    }
-
-    @objc
-    private func didTapAddBlockIntervalsButton() {
-        eventsHandler?.didTapAddIntervals(type: .block)
-    }
-
-    @objc
-    private func didTapRemoveBlockIntervalsButton() {
-        eventsHandler?.didTapRemoveIntervals(type: .block)
-    }
-
-    @objc
-    private func didTapAddOvertimeIntervalsButton() {
-        eventsHandler?.didTapAddIntervals(type: .overtime)
-    }
-
-    @objc
-    private func didTapRemoveOvertimeIntervalsButton() {
-        eventsHandler?.didTapRemoveIntervals(type: .overtime)
-    }
-
-    @objc
-    private func didTapAddAdditionalTimeIntervalsButton() {
-        eventsHandler?.didTapAddIntervals(type: .additionalTime)
-    }
-
-    @objc
-    private func didTapRemoveAdditionalTimeIntervalsButton() {
-        eventsHandler?.didTapRemoveIntervals(type: .additionalTime)
+    private func didChangeFreeModeSwitch(_ sender: UISwitch) {
+        eventsHandler?.didChangeLicenseType(isFreeMode: sender.isOn)
     }
 
 }
@@ -342,12 +188,6 @@ extension DashboardViewImpl {
 
 extension DashboardViewImpl {
 
-    private func makeSpacerView(height: CGFloat) -> UIView {
-        let view = UIView().prepareForAutoLayout()
-        view.heightAnchor.constraint(equalToConstant: height).isActive = true
-        return view
-    }
-
     private func makeLabel(title: String) -> UILabel {
         let titleLabel = UILabel().prepareForAutoLayout()
         titleLabel.attributedText = NSAttributedString(
@@ -359,12 +199,12 @@ extension DashboardViewImpl {
         return titleLabel
     }
 
-    private func makeButtonsContainer() -> UIStackView {
-        let stackView = UIStackView().prepareForAutoLayout()
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.spacing = 16
-        return stackView
+    private func makeContainer() -> UIView {
+        let containerView = UIView().prepareForAutoLayout()
+        containerView.backgroundColor = .backgroundPrimary
+        containerView.layer.cornerRadius = Constants.timelineCornerRadius
+        containerView.layer.masksToBounds = true
+        return containerView
     }
 
 }

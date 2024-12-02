@@ -27,8 +27,7 @@ final class DashboardBuilder: Builder {
         let interactor = DashboardInteractorImpl(
             presenter: presenter,
             listener: listener,
-            licenseStatusProvider: component.licenseStatusProvider,
-            deviceUsageReportsManager: component.deviceUsageReportsManager
+            licenseStatusProvider: component.licenseStatusProvider
         )
         presenter.interactor = interactor
 
@@ -51,7 +50,6 @@ extension DashboardBuilder {
 
     struct Component {
         let licenseStatusProvider: LicenseStatusProvidable
-        let deviceUsageReportsManager: DeviceUsageReportsManager
         
         let rootServicesProvider: RootServicesProvider
     }
@@ -71,7 +69,6 @@ extension RootServicesProvider: DashboardComponentFactory {
     func makeComponent() -> DashboardBuilder.Component {
         .init(
             licenseStatusProvider: rootServicesContainer.licenseStatusProvider,
-            deviceUsageReportsManager: rootServicesContainer.deviceUsageReportsManager,
             rootServicesProvider: self
         )
     }

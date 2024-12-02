@@ -4,12 +4,4 @@
 "DeviceWorkTimeline.AdditionalTime.title" = "Additional time";
 "DeviceWorkTimeline.Overtime.title" = "Active with warnings";
 
-"Dashboard.Button.FreeMode.title" = "Free Mode";
-"Dashboard.Button.PremiumMode.title" = "Premium Mode";
-"Dashboard.Button.Add.title" = "Add";
-"Dashboard.Button.Remove.title" = "Remove";
-
-"Dashboard.UsageIntervals.title" = "Usage Intervals";
-"Dashboard.BlockIntervals.title" = "Block Intervals";
-"Dashboard.OvertimeIntervals.title" = "Usage Intervals with Warnings";
-"Dashboard.AdditionalTimeIntervals.title" = "Additional Time Intervals";
+"Dashboard.FreeMode.title" = "Free Mode";

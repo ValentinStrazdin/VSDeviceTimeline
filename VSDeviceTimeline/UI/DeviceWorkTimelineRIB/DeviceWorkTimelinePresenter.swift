@@ -7,7 +7,7 @@ protocol DeviceWorkTimelinePresenter: AnyObject {
     func presentFreeMode()
     func presentPremium(
         timelinePosition: CGFloat,
-        timelineData: DeviceUsageTimelineData?
+        timelineIntervals: [TimelineInterval]
     )
 
 }
@@ -47,33 +47,25 @@ final class DeviceWorkTimelinePresenterImpl: DeviceWorkTimelinePresenter {
 
     func presentPremium(
         timelinePosition: CGFloat,
-        timelineData: DeviceUsageTimelineData?
+        timelineIntervals: [TimelineInterval]
     ) {
-        let viewModel: ViewModel
-        let legendsConfs: [LegendCellConfigurator]
-        if let usageIntervals = timelineData?.intervals {
-            var legendItems: [LegendItem] = [.active]
-            if usageIntervals.contains(where: { $0.type == .block }) {
-                legendItems.append(.blocked)
-            }
-            if usageIntervals.contains(where: { $0.type == .additionalTime }) {
-                legendItems.append(.additionalTime)
-            }
-            if usageIntervals.contains(where: { $0.type == .overtime }) {
-                legendItems.append(.overtime)
-            }
-            legendsConfs = makeLegendsConfs(
-                legendItems: legendItems
-            )
-            viewModel = ViewModel(
-                intervals: usageIntervals,
-                isLegendsHidden: false
-            )
+        var legendItems: [LegendItem] = [.active]
+        if timelineIntervals.contains(where: { $0.type == .block }) {
+            legendItems.append(.blocked)
         }
-        else {
-            legendsConfs = []
-            viewModel = ViewModel()
+        if timelineIntervals.contains(where: { $0.type == .additionalTime }) {
+            legendItems.append(.additionalTime)
         }
+        if timelineIntervals.contains(where: { $0.type == .overtime }) {
+            legendItems.append(.overtime)
+        }
+        let legendsConfs = makeLegendsConfs(
+            legendItems: legendItems
+        )
+        let viewModel = ViewModel(
+            intervals: timelineIntervals,
+            isLegendsHidden: false
+        )
 
         dataManager.items = legendsConfs
         present(

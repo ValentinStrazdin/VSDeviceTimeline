@@ -44,5 +44,9 @@ extension TimelineInterval {
             TimelineInterval(start: $0 + 20, end: $0 + 23, type: .additionalTime)
         }.sorted()
     }
+    
+    static var allIntervals: [TimelineInterval] {
+        return [usageIntervals, blockIntervals, overtimeIntervals, additionalTimeIntervals].flatMap(\.self)
+    }
 
 }

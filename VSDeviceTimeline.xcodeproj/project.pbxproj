@@ -62,14 +62,12 @@
 		6EF2BF932C62CD0500029A40 /* DeviceWorkTimelineInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF922C62CD0500029A40 /* DeviceWorkTimelineInteractor.swift */; };
 		6EF2BF952C62CEA200029A40 /* DeviceWorkTimelinePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF942C62CEA200029A40 /* DeviceWorkTimelinePresenter.swift */; };
 		6EF2BF972C62CEBC00029A40 /* DeviceWorkTimelineRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF962C62CEBC00029A40 /* DeviceWorkTimelineRouter.swift */; };
-		6EF2BF9C2C62D35C00029A40 /* DeviceUsageTimelineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BF9B2C62D35C00029A40 /* DeviceUsageTimelineData.swift */; };
 		6EF2BFB22C637AA300029A40 /* DashboardBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFAC2C637AA300029A40 /* DashboardBuilder.swift */; };
 		6EF2BFB32C637AA300029A40 /* DashboardInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFAD2C637AA300029A40 /* DashboardInteractor.swift */; };
 		6EF2BFB42C637AA300029A40 /* DashboardPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFAE2C637AA300029A40 /* DashboardPresenter.swift */; };
 		6EF2BFB52C637AA300029A40 /* DashboardRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFAF2C637AA300029A40 /* DashboardRouter.swift */; };
 		6EF2BFB62C637AA300029A40 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFB02C637AA300029A40 /* DashboardView.swift */; };
 		6EF2BFBC2C63810100029A40 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFBB2C63810100029A40 /* Observable.swift */; };
-		6EF2BFBE2C6383B800029A40 /* DeviceUsageReportsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFBD2C6383B800029A40 /* DeviceUsageReportsManager.swift */; };
 		6EF2BFC12C6384B500029A40 /* LicenseStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFC02C6384B500029A40 /* LicenseStatus.swift */; };
 		6EF2BFC32C6384E500029A40 /* LicenseStatusProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFC22C6384E500029A40 /* LicenseStatusProvider.swift */; };
 		6EF2BFC72C638E2600029A40 /* RootServicesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EF2BFC62C638E2600029A40 /* RootServicesContainer.swift */; };
@@ -151,14 +149,12 @@
 		6EF2BF922C62CD0500029A40 /* DeviceWorkTimelineInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWorkTimelineInteractor.swift; sourceTree = "<group>"; };
 		6EF2BF942C62CEA200029A40 /* DeviceWorkTimelinePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWorkTimelinePresenter.swift; sourceTree = "<group>"; };
 		6EF2BF962C62CEBC00029A40 /* DeviceWorkTimelineRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWorkTimelineRouter.swift; sourceTree = "<group>"; };
-		6EF2BF9B2C62D35C00029A40 /* DeviceUsageTimelineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUsageTimelineData.swift; sourceTree = "<group>"; };
 		6EF2BFAC2C637AA300029A40 /* DashboardBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardBuilder.swift; sourceTree = "<group>"; };
 		6EF2BFAD2C637AA300029A40 /* DashboardInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardInteractor.swift; sourceTree = "<group>"; };
 		6EF2BFAE2C637AA300029A40 /* DashboardPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardPresenter.swift; sourceTree = "<group>"; };
 		6EF2BFAF2C637AA300029A40 /* DashboardRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardRouter.swift; sourceTree = "<group>"; };
 		6EF2BFB02C637AA300029A40 /* DashboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 		6EF2BFBB2C63810100029A40 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		6EF2BFBD2C6383B800029A40 /* DeviceUsageReportsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceUsageReportsManager.swift; sourceTree = "<group>"; };
 		6EF2BFC02C6384B500029A40 /* LicenseStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseStatus.swift; sourceTree = "<group>"; };
 		6EF2BFC22C6384E500029A40 /* LicenseStatusProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseStatusProvider.swift; sourceTree = "<group>"; };
 		6EF2BFC62C638E2600029A40 /* RootServicesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootServicesContainer.swift; sourceTree = "<group>"; };
@@ -460,15 +456,6 @@
 			path = DashboardRIB;
 			sourceTree = "<group>";
 		};
-		6EF2BFB72C63807100029A40 /* DeviceUsageReportsManager */ = {
-			isa = PBXGroup;
-			children = (
-				6EF2BF9B2C62D35C00029A40 /* DeviceUsageTimelineData.swift */,
-				6EF2BFBD2C6383B800029A40 /* DeviceUsageReportsManager.swift */,
-			);
-			path = DeviceUsageReportsManager;
-			sourceTree = "<group>";
-		};
 		6EF2BFBF2C63849100029A40 /* LicenseStatusProvider */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,7 +468,6 @@
 		6EF2BFC42C638DF900029A40 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				6EF2BFB72C63807100029A40 /* DeviceUsageReportsManager */,
 				6EF2BFBF2C63849100029A40 /* LicenseStatusProvider */,
 				6EF2BFC52C638E0F00029A40 /* RootServices */,
 			);
@@ -583,7 +569,6 @@
 				6EF2BF552C6257B800029A40 /* UICollectionView+Dequeueing.swift in Sources */,
 				6EF2BF452C623C2800029A40 /* GradientColors.swift in Sources */,
 				6EF2BF412C6238A000029A40 /* UIColor+Extension.swift in Sources */,
-				6EF2BFBE2C6383B800029A40 /* DeviceUsageReportsManager.swift in Sources */,
 				6EF2BFCF2C63B1A900029A40 /* UITraitEnvironment+Extension.swift in Sources */,
 				6EF2BF862C62C64200029A40 /* RootBuilder.swift in Sources */,
 				6EF2BF842C62C4C700029A40 /* ContainerViewController.swift in Sources */,
@@ -637,7 +622,6 @@
 				6EF2BFC32C6384E500029A40 /* LicenseStatusProvider.swift in Sources */,
 				6ECD35A92C6610D1008EB122 /* TimelineInterval+Helpers.swift in Sources */,
 				6ECD35A72C6524B9008EB122 /* CustomButton.swift in Sources */,
-				6EF2BF9C2C62D35C00029A40 /* DeviceUsageTimelineData.swift in Sources */,
 				6EF2BF952C62CEA200029A40 /* DeviceWorkTimelinePresenter.swift in Sources */,
 				6ECD359D2C6510CD008EB122 /* String+Localized.swift in Sources */,
 			);
